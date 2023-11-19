@@ -25,23 +25,13 @@ class Simulation:
             self.vy.append(ball_speed)
             self.ball_color.append((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
             self.speed = ball_speed
-<<<<<<< HEAD
-        return self.xpos, self.ypos, self.vx, self.vy, self.ball_color
-=======
             self.ball_radius = ball_radius
         return self.xpos, self.ypos, self.vx, self.vy, self.ball_color, self.speed, self.ball_radius
->>>>>>> feature
 
 num_balls = int(input("Number of balls to simulate: "))
 speed = int(input("Enter the speed for the balls: "))
 size = int(input("Enter the size for the balls: "))
 turtle.tracer(0)
-
-# turtle.speed(0)
-# turtle.tracer(0)
-# canvas_width = turtle.screensize()[0]
-# canvas_height = turtle.screensize()[1]
-# ball_radius = 0.05 * canvas_width
 
 sim = Simulation()
 
@@ -53,12 +43,6 @@ while True:
     for i in range(num_balls):
         b = ball.draw_circle(i)
         ball.move_circle(i)
-
         sim.balls.append(b)
 
-
     turtle.update()
-
-
-
-

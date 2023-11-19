@@ -41,16 +41,3 @@ class Balls:
         # if the ball hits the ceiling or the floor, reverse the vy velocity
         if abs(self.ypos[i] + self.vy[i]) > (self.canvas_height - self.ball_radius):
             self.vy[i] = -self.vy[i]
-
-
-    # def initilizing(self, canvas_width, canvas_height, ball_radius, num_balls):
-    #     # create random number of balls, num_balls, located at random positions within the canvas; each ball has a random velocity value in the x and y direction and is painted with a random color
-    #     for i in range(num_balls):
-    #         self.xpos.append(random.randint(-1*canvas_width + ball_radius, canvas_width - ball_radius))
-    #         self.ypos.append(random.randint(-1*canvas_height + ball_radius, canvas_height - ball_radius))
-    #         self.vx.append(random.randint(1, 0.01*canvas_width))
-    #         self.vy.append(random.randint(1, 0.01*canvas_height))
-    #         self.ball_color.append((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
-    #
-    #     return self.xpos, self.ypos, self.vx, self.vy, self.ball_color
-
