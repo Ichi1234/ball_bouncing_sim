@@ -2,21 +2,22 @@ import turtle
 import random
 
 class Balls:
-    def __init__(self, xpos, ypos, vx, vy, ball_color):
+    def __init__(self, xpos, ypos, vx, vy, ball_color, balls_speed, balls_size):
         turtle.hideturtle()
-        self.speed = turtle.speed(speed)
+        self.speed = balls_speed
         self.canvas_width = turtle.screensize()[0]
         self.canvas_height = turtle.screensize()[1]
-        self.ball_radius = 0.05 * self.canvas_width
+        self.ball_radius = balls_size
         turtle.colormode(255)
-        self.color_list = []
         self.xpos = xpos
         self.ypos = ypos
         self.vx = vx
         self.vy = vy
         self.ball_color = ball_color
 
-        self.initilizing(canvas_width, canvas_height, ball_radius, num_balls)
+
+
+
     def draw_circle(self, i):
         # draw a circle of radius equals to size at x, y coordinates and paint it with color
         turtle.penup()
@@ -25,7 +26,6 @@ class Balls:
         turtle.goto(self.xpos[i],self.ypos[i])
         turtle.pendown()
         turtle.begin_fill()
-        turtle.speed("slowest")
         turtle.circle(self.ball_radius)
         turtle.end_fill()
 
@@ -42,6 +42,7 @@ class Balls:
         if abs(self.ypos[i] + self.vy[i]) > (self.canvas_height - self.ball_radius):
             self.vy[i] = -self.vy[i]
 
+
     # def initilizing(self, canvas_width, canvas_height, ball_radius, num_balls):
     #     # create random number of balls, num_balls, located at random positions within the canvas; each ball has a random velocity value in the x and y direction and is painted with a random color
     #     for i in range(num_balls):
@@ -52,3 +53,4 @@ class Balls:
     #         self.ball_color.append((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
     #
     #     return self.xpos, self.ypos, self.vx, self.vy, self.ball_color
+
