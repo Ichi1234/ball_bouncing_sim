@@ -1,14 +1,31 @@
 import turtle
 from ball import Balls
+import random
 
 class Simulation:
 
     def __init__(self):
-        self.speed = turtle.speed("slowest")
+        self.speed = 0
         self.canvas_width = turtle.screensize()[0]
         self.canvas_height = turtle.screensize()[1]
         self.ball_radius = 0.05 * self.canvas_width
+        self.color_list = []
+        self.xpos = []
+        self.ypos = []
+        self.vx = []
+        self.vy = []
+        self.ball_color = []
 
+    def initilizing(self, ball_speed,  ball_radius, num_balls):
+        # create random number of balls, num_balls, located at random positions within the canvas; each ball has a random velocity value in the x and y direction and is painted with a random color
+        for i in range(num_balls):
+            self.xpos.append(random.randint(-1 * self.canvas_width + ball_radius, self.canvas_width - ball_radius))
+            self.ypos.append(random.randint(-1 * self.canvas_height + ball_radius, self.canvas_height - ball_radius))
+            self.vx.append(random.randint(1,  self.canvas_width))
+            self.vy.append(random.randint(1,  self.canvas_height))
+            self.ball_color.append((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
+            self.speed = ball_speed
+        return self.xpos, self.ypos, self.vx, self.vy, self.ball_color
 
 num_balls = int(input("Number of balls to simulate: "))
 speed = int(input("Enter the speed for the balls: "))
@@ -20,7 +37,7 @@ turtle.tracer(0)
 # ball_radius = 0.05 * canvas_width
 sim = Simulation()
 
-ball = Balls(sim.canvas_width, sim.canvas_height, sim.ball_radius, num_balls, speed)
+ball = Balls(sim.initilizing())
 while True:
     turtle.clear()
     for i in range(num_balls):
